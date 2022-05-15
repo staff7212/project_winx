@@ -1,22 +1,40 @@
+import {useState, useEffect } from 'react';
+import Fairy from '../fairy/Fairy';
+import Spinner from '../spinner/Spinner';
 
 import './modal.scss';
-import flora from '../../resources/flora.jpeg'
 
-const Modal = () => {
+const Modal = (props) => {
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [close, setClose] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 800)
+
+    return () => {
+      clearTimeout(timer)
+    };
+  }, [])
+
+  const closed = () => {
+    setClose(true)
+    setTimeout(() => {
+      props.hideModal()
+    }, 400)
+  };
+
+  const fairy = !isLoading ? <Fairy isClose={closed} /> : null;
+  const spinner = isLoading ? <Spinner /> : null;
+
   return (
     <>
-      <div className="overlay"></div>
-      <div className="modal">
-        <div className="fairy">
-          <div className="fairy__img">
-            <img src={flora} alt="" />
-          </div>
-          <div className="fairy__wrapper">
-            <div className="fairy__name">Flora</div>
-            <div className="fairy__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quaerat facere, modi suscipit, fuga quae nobis aliquam magni reiciendis necessitatibus labore praesentium distinctio exercitationem ipsum rem animi! Modi, beatae iure?</div>
-            <button className="fairy__close">Закрыть</button>
-          </div>
-        </div>
+      <div className="overlay" onClick={closed}></div>
+      <div className={`modal ${close ? 'close' : ''}`}>
+        {spinner}
+        {fairy}
       </div>
     </>
   )

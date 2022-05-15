@@ -2,7 +2,7 @@
 import './main.scss';
 import logo from '../../resources/logo.png'
 
-const Main = () => {
+const Main = (props) => {
 
   return (
     <>
@@ -12,7 +12,7 @@ const Main = () => {
       </header>
 
       <h2 className='main__title'>Кто ты из Winx?</h2>
-      <button className='main__btn'>Узнать</button>
+      <button className='main__btn' onClick={props.showModal}>Узнать</button>
 
     </>
   )
