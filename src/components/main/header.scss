@@ -1,0 +1,20 @@
+.header {
+  position: relative;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 67, 224, 0.1);
+  &__title {
+    padding: 20px 0 20px 60px;
+    text-transform: uppercase;
+    color: #EC428F;
+    display: inline-block;
+  }
+  &__logo {
+    position: absolute;
+    right: 30px;
+    width: 230px;
+    top: -30px;
+    transform: rotate(10deg);
+  }
+}
