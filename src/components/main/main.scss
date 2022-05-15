@@ -1,0 +1,58 @@
+.header {
+  position: relative;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  &__title {
+    padding: 20px 0 20px 60px;
+    text-transform: uppercase;
+    color: #EC428F;
+    display: inline-block;
+  }
+  &__logo {
+    position: absolute;
+    right: 30px;
+    width: 230px;
+    top: -30px;
+    transform: rotate(10deg);
+  }
+}
+.main {
+  &__title {
+    text-align: center;
+    font-size: 64px;
+    padding-top: 150px;
+    color: #EC428F;
+    text-shadow: 2px 2px 6px #aa8c99;
+  }
+  &__btn {
+    display: block;
+    margin: 30px auto;
+    border: none;
+    width: 28rem;
+    height: 4rem;
+    background:linear-gradient(40deg,#EC428F, #ec42c7,#d24aff 90%);
+    border-radius: 35px;
+    box-shadow: 2px 2px 8px rgb(108, 97, 107);
+    color: #ecc4e8;
+    font-size: 36px;
+    cursor: pointer;
+    transition: all .3;
+    @keyframes bounce {
+      0%, 40%, 80%, 100% {
+        transform: rotate(0deg);
+      }
+      20% {
+        transform: rotate(1deg);
+      }
+      60% {
+        transform: rotate(-1deg);
+      }
+
+    }
+    &:hover {
+      animation: bounce .4s;
+      background:linear-gradient(40deg,#dd3d85, #e13fbe,#c444ef 90%);
+    }
+  }
+}
