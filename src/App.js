@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Header from './components/main/Header';
 import Main from './components/main/Main';
 import Modal from './components/modal/Modal';
 import './style.scss';
@@ -17,10 +18,13 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <Main showModal={showModalHandler}/>
-      {isShowModal &&  <Modal isClose={isShowModal} hideModal={hideModalHandler} />}
-    </div>
+    <>
+      <Header />
+      <div className="app">
+        <Main showModal={showModalHandler}/>
+        {isShowModal &&  <Modal isClose={isShowModal} hideModal={hideModalHandler} />}
+      </div>
+    </>
   );
 }
 

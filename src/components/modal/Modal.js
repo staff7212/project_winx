@@ -12,7 +12,7 @@ const Modal = (props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 800)
+    }, 900)
 
     return () => {
       clearTimeout(timer)
